@@ -173,16 +173,7 @@ def test_m_grouped_gemm_masked() -> None:
               f'{2 * valid_m * n * k / t / 1e12:4.0f} TFLOPS | '
               f'{(count_bytes(a, d) * valid_m / (max_m * num_groups) + count_bytes(b)) / 1e9 / t:4.0f} GB/s')
     print()
-    
-        print(
-            f' > Perf ({num_groups=}, expected_m_per_group={expected_m_per_group:4}, '
-            f'n={n:4}, k={k:4}, {kernel_opt}, enable_overlap={enable_overlap}): '
-            f'{t * 1e6:4.0f} us | '
-            f'{2 * valid_m * n * k / t / 1e12:4.0f} TFLOPS | '
-            f'{(count_bytes(a, d) * valid_m / (max_m * num_groups) + count_bytes(b)) / 1e9 / t:4.0f} GB/s'
-        )
-
-        case_idx += 1
+    case_idx += 1
 
     print()
 
