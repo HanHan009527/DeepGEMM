@@ -112,7 +112,7 @@ def enumerate_m_grouped_contiguous(dtype: torch.dtype) -> Generator:
 
 def enumerate_m_grouped_masked(dtype: torch.dtype) -> Generator:
     max_m = 4096
-    for kernel_type in get_kernel_types():
+    for kernel_type in get_kernel_types(dtype):
         for enable_overlap in (False, True):
             for num_groups, m in ((1, 1024), (2, 512), (4, 256), (16, 32), (16, 64)):
                 for n, k in ((4096, 7168), (7168, 2048), ):
