@@ -31,10 +31,7 @@ public:
 
     static std::string generate_impl(const Args& args) {
 
-    const char* kernel_name =
-        get_env<int>("ENABLE_SWAPAB") ?
-            "swapAB_sm90_fp8_gemm_1d2d_impl" :
-            "sm90_fp8_gemm_1d2d_impl";
+    const char* kernel_name = "swapAB_sm90_fp8_gemm_1d2d_impl";
 
         return fmt::format(R"(
 #include <deep_gemm/impls/sm90_fp8_gemm_1d2d.cuh>
