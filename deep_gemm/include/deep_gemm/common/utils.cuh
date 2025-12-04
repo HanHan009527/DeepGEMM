@@ -104,11 +104,11 @@ __device__  __forceinline__ uint32_t ld_shared(const uint32_t* ptr) {
     return ret;
 }
 
-__device__  __forceinline__ float2 ld_shared(const float2* ptr) {
-    float2 ret;
-    asm volatile("ld.shared.v2.f32 {%0, %1}, [%2];" : "=f"(ret.x), "=f"(ret.y) : "l"(ptr));
-    return ret;
-}
+// __device__  __forceinline__ float2 ld_shared(const float2* ptr) {
+//     float2 ret;
+//     asm volatile("ld.shared.v2.f32 {%0, %1}, [%2];" : "=f"(ret.x), "=f"(ret.y) : "l"(ptr));
+//     return ret;
+// }
 
 __device__  __forceinline__ float4 ld_shared(const float4* ptr) {
     float4 ret;
