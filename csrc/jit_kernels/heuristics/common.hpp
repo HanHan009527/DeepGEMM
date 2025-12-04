@@ -165,7 +165,7 @@ static GemmConfig get_best_config(const GemmType& gemm_type, const KernelType& k
         block_ms = std::vector{get_mk_alignment_for_contiguous_layout()};
     if (gemm_type == GemmType::MGroupedMasked)  // Exclude 256 for performance
         block_ms = std::vector{64, 128};
-    const auto block_ns = ArchSpec::get_block_n_candidates(cd_dtype, max_block_n);
+    auto block_ns = ArchSpec::get_block_n_candidates(cd_dtype, max_block_n);
     if(get_env<int>("ENABLE_SWAPAB")){
         block_ms = std::vector{32};  // 32, 64
         block_ns = std::vector{256}; // 256 for H20, and can choose 64, 128, 256
